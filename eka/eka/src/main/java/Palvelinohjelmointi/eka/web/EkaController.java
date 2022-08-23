@@ -22,8 +22,8 @@ public class EkaController {
 		
 	@RequestMapping("hello")
 	@ResponseBody
-	public String helloPage(@RequestParam(name="loc", defaultValue="moon") String location, @RequestParam(name="name", defaultValue="John") String nimi) {
-		return "Welcome to the " + location + " " + nimi + "!";
+	public String helloPage(@RequestParam(name="location", defaultValue="moon") String location, @RequestParam(name="name", defaultValue="John") String name) {
+		return "Welcome to the " + location + " " + name + "!";
 	}
 
 }
