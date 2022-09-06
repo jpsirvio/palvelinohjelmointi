@@ -7,7 +7,23 @@
 <body>
 	<h1>Bookstore</h1>
 	<table>
-		<tr>books will be here</tr>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>ISBN</th>
+			<th>Year</th>
+			<th>Price</th>
+			<th>Delete</th>
+		</tr>
+		<tr th:each ="book : ${books}">
+			<td th:text="${book.title}" />
+			<td th:text="${book.author}" />
+			<td th:text="${book.isbn}" />
+			<td th:text="${book.bookYear}" />
+			<td th:text="${book.price}" />
+			<td>del</td>
+		</tr>
 	</table>
+	<div>tba: Add Book</div>
 </body>
 </html>
