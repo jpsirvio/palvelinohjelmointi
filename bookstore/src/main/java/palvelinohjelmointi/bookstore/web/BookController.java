@@ -1,16 +1,19 @@
 package palvelinohjelmointi.bookstore.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import palvelinohjelmointi.bookstore.domain.BookRepository;
 
-import palvelinohjelmointi.bookstore.domain.Book;
-
+@Controller
 public class BookController {
+	@Autowired
+	private BookRepository repository; 
 	
-	@GetMapping("/index")
-	public String listBooks(Model model) {
-		return "index";
-	}
-	
-	
+    @RequestMapping(value= {"/index"})
+    public String bookList(Model model) {	
+        model.addAttribute("books", repository.findAll());
+        return "booklist";
+    }
 }

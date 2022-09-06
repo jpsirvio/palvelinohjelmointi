@@ -14,7 +14,7 @@ public class StudentController {
 	@RequestMapping(value="/hello", method = RequestMethod.GET)
 	public String students(Model model) {
 		
-		ArrayList<Student> list = new ArrayList<Student>();
+		ArrayList<Student> list = new ArrayList<>();
 		list.add(new Student("Kate","Cole"));
 		list.add(new Student("Dan","Brown"));
 		list.add(new Student("Mike","Mars"));
