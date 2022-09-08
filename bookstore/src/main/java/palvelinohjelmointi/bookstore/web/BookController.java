@@ -25,7 +25,7 @@ public class BookController {
         model.addAttribute("book", new Book());
         return "addbook";
     }
-    
+      
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(Book book){
         repository.save(book);
@@ -37,4 +37,11 @@ public class BookController {
     	repository.deleteById(id);
         return "redirect:../index";
     }     
+    
+    @RequestMapping(value= {"/edit/{id}"}, method = RequestMethod.GET)
+    public String editBook(@PathVariable("id") Long id, Model model) {	
+        model.addAttribute("editBook", repository.findById(id));
+        return "editbook";
+    }
+    
 }
