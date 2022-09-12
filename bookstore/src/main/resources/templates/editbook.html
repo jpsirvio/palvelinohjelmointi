@@ -19,6 +19,11 @@
 		<label for="isbn">ISBN</label>
 		<input type="text" id="isbn" th:field="*{isbn}" />
 		<div style="clear: both; display: block; height: 10px;"></div>
+		<label for="categorylist">Category</label>
+		<select id="categorylist" th:field="*{category}" class="form-control">
+			<option th:each="category: ${categories}" th:value="${category.categoryId}" th:text="${category.name}"></option>
+		</select>
+		<div style="clear: both; display: block; height: 10px;"></div>
 		<label for="bookYear">Year</label>
 		<input type="text" id="bookYear" th:field="*{bookYear}" />
 		<div style="clear: both; display: block; height: 10px;"></div>
