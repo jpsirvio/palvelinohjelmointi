@@ -12,8 +12,16 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
+	//validointi @Size(min = 1, max = 3)
 	private String title, author, isbn;
-	private int bookYear, price;
+	
+	//validointi @Min( value = 1900, message = "min value is 1900")
+	//validointi @Max ( value = 2023, meassage = "max value is 2023")
+	private int bookYear;
+	
+	//validointi @Min( value = 0, message = "min value is 0")
+	private int price;
 	
 	@ManyToOne
 	@JoinColumn(name = "categoryid")
