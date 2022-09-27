@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 <link type="text/css" rel="stylesheet" href="css/boostrap.min.css" th:href="@{/css/bootstrap.min.css}" />
@@ -7,6 +8,7 @@
 </head>
 <body>
 	<h1>Bookstore</h1>
+	<div th:text="'Hello ' + ${appuser} + '. You are an ' + ${appuser}">hello</div>
 	<table class="table table-striped">
 		<tr>
 			<th>Title</th>
@@ -25,10 +27,11 @@
 			<td th:text="${book.category.name}"></td>
 			<td th:text="${book.bookYear}" />
 			<td th:text="${book.price}" />
-			<td><a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-primary">Edit</a></td>
-			<td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-primary">Edit</a></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
 		</tr>
 	</table>
-	<a href="/add" class="btn btn-primary">Add Book</a>
+	<div><a href="/add" class="btn btn-primary">Add Book</a></div>
+	<div><a href="/logout" class="btn btn-danger">Log out</a></div>
 </body>
 </html>

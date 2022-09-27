@@ -16,11 +16,11 @@ public class Book {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Size(min = 1, max = 3)
+	@Size(min = 1, max = 50, message = "value is not valid")
 	private String title, author, isbn;
 	
-	@Min( value = 1900, message = "min value is 1900")
-	@Max ( value = 2023, message = "max value is 2023")
+	@Min( value = 1000, message = "min value is 1900")
+	@Max ( value = 5000, message = "max value is 2023")
 	private int bookYear;
 	
 	@Min( value = 0, message = "min value is 0")
